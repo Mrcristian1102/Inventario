@@ -3,42 +3,36 @@ Descripción
 
 Este proyecto es un programa sencillo en Python que permite registrar un producto en un inventario.
 
-El programa pide al usuario:
+El usuario ingresa los datos del producto y el sistema calcula el costo total multiplicando el precio por la cantidad.
 
-Nombre del producto
+Diagrama de Flujo
 
-Precio
+El proceso del programa sigue estos pasos:
 
-Cantidad
+Inicio
 
-Luego calcula el costo total multiplicando el precio por la cantidad y muestra el resultado en la consola.
+Leer nombre, precio y cantidad
 
-Diagrama de flujo
+Calcular costo total
 
-El proceso del programa es el siguiente:
+Mostrar resultado
 
-Inicio → Leer nombre, precio y cantidad → Calcular costo total → Mostrar resultado → Fin
+Fin
 
-El diagrama fue realizado en draw.io y guardado como imagen o PDF.
+El diagrama fue realizado en draw.io y se encuentra en el repositorio como imagen o PDF.
 
-Archivo del proyecto
+Funcionalidades
 
-inventario.py → programa principal
+Solicitar el nombre del producto
+
+Solicitar el precio
+
+Solicitar la cantidad
+
+Calcular el costo total
+
+Mostrar el resultado en consola
 
 Ejemplo de salida
 
-Producto: Lápiz | Precio: 500 | Cantidad: 3 | Total: 1500
-
-Objetivo
-
-Practicar conceptos básicos de Python:
-
-Variables
-
-input()
-
-Conversión de datos (float, int)
-
-Operaciones matemáticas
-
-print()
+Producto: Lapiz | Precio: 500 | Cantidad: 3 | Total: 1500
