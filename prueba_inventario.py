@@ -37,32 +37,21 @@ while True:
 
         print(f"Producto '{nombre}' agregado correctamente ")
 
-
-
-
-
-
-
-
-
-
     elif opcion == "2":
-        print("Has elegido mostrar el inventario.")
+        print("----- INVENTARIO -----")
 
-
-
-
-
-
-
-
-        
+        if len(inventario) == 0:
+            print("El inventario está vacío.")
+        else:
+            for producto in inventario:
+                print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
 
     elif opcion == "3":
         print("Has elegido calcular estadísticas.")
 
     elif opcion == "4":
         print("Saliendo del programa...")
+        break
 
     else:
         print("Opción inválida. Intente nuevamente.")
