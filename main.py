@@ -1,5 +1,4 @@
-from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas
-
+from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto
 
 # Función principal que contiene el menú
 def menu():
@@ -8,7 +7,9 @@ def menu():
         print("1. Agregar producto")
         print("2. Mostrar inventario")
         print("3. Calcular estadísticas")
-        print("4. Salir")
+        print("4. Buscar producto")
+        print("6 Eliminar producto")
+        print("7. Salir")
 
         opcion = input("Seleccione una opción: ")
 
@@ -20,11 +21,14 @@ def menu():
         elif opcion == "3":
             calcular_estadisticas()
         elif opcion == "4":
+            buscar_producto()
+        elif opcion == "6":
+            eliminar_producto()  
+        elif opcion == "7":
             print("Saliendo del programa...")
             break
         else:
             print("Opción inválida. Intente nuevamente.")
-
 
 # Ejecutar el programa
 menu()

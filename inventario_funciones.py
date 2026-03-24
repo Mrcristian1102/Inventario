@@ -75,3 +75,23 @@ def calcular_estadisticas():
 
     print(f"Valor total del inventario: {valor_total}")
     print(f"Cantidad total de productos: {total_productos}")
+
+
+def buscar_producto():  
+    nombre = input("Digite el nombre a buscar: ")
+    for producto in inventario:
+        if producto["nombre"].lower() == nombre.lower():
+            print(f"Encontrado: {producto}")
+            return
+    print("No se encontró el producto.")
+
+
+def eliminar_producto():
+    nombre = input("Nombre del producto a eliminar: ")
+    for producto in inventario:
+        if producto["nombre"].lower() == nombre.lower():
+            inventario.remove(producto) 
+            print(f"Producto '{nombre}' eliminado, ya no se encuentra en si inventario.")
+            return 
+            
+    print("No se encontró el producto para eliminar.")
