@@ -2,7 +2,9 @@ from inventario_funciones import agregar_producto, mostrar_inventario, calcular_
 
 # Función principal que contiene el menú
 def menu():
-    while True:
+    continuar = True
+    
+    while continuar:
         print("\n--- MENÚ DE INVENTARIO ---")
         print("1. Agregar producto")
         print("2. Mostrar inventario")

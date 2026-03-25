@@ -3,7 +3,8 @@ inventario = []
 
 
 def pedir_precio():
-    while True:
+    continuar = True
+    while continuar:
         try:
             precio = float(input("Digite el precio del producto: "))
             if precio < 0:
@@ -15,7 +16,8 @@ def pedir_precio():
 
 
 def pedir_cantidad():
-    while True:
+    continuar = True
+    while continuar:
         try:
             cantidad = int(input("Digite la cantidad del producto: "))
             if cantidad < 0:
@@ -27,25 +29,25 @@ def pedir_cantidad():
 
 
 def agregar_producto():
-    # Solicitar datos al usuario
-    nombre = input("Digite el nombre del producto: ")
-    precio = pedir_precio()
-    cantidad = pedir_cantidad()
+        # Solicitar datos al usuario
+        nombre = input("Digite el nombre del producto: ")
+        precio = pedir_precio()
+        cantidad = pedir_cantidad()
 
-    # Calcular costo total
-    costo_total = precio * cantidad
+        # Calcular costo total
+        costo_total = precio * cantidad
 
-    # Crear diccionario del producto
-    producto = {
-        "nombre": nombre,
-        "precio": precio,
-        "cantidad": cantidad
-    }
+        # Crear diccionario del producto
+        producto = {
+            "nombre": nombre,
+            "precio": precio,
+            "cantidad": cantidad
+        }
 
-    # Agregar al inventario
-    inventario.append(producto)
+        # Agregar al inventario
+        inventario.append(producto)
 
-    print(f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
+        print(f"Producto: {nombre} | Precio: {precio} | Cantidad: {cantidad} | Total: {costo_total}")
 
 
 def mostrar_inventario():
