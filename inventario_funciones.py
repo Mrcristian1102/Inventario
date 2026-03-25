@@ -95,3 +95,17 @@ def eliminar_producto():
             return 
             
     print("No se encontró el producto para eliminar.")
+
+
+def actualizar_producto ():
+    nombre = input("Digite el producto que quiera actualizar: ")
+    for producto in inventario:
+        if producto["nombre"].lower() == nombre.lower():
+            nuevo_nombre = input("Nuevo nombre: ")
+            if nuevo_nombre != "":
+                producto["nombre"] = nuevo_nombre 
+            producto["precio"] = pedir_precio()
+            producto["cantidad"] = pedir_cantidad()
+            print("Producto actualizado.")
+            return
+    print("No se encontro el producto.")

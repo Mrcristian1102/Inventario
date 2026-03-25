@@ -1,4 +1,4 @@
-from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto
+from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto
 
 # Función principal que contiene el menú
 def menu():
@@ -23,6 +23,8 @@ def menu():
             calcular_estadisticas()
         elif opcion == "4":
             buscar_producto()
+        elif opcion == "5":
+            actualizar_producto()
         elif opcion == "6":
             eliminar_producto()  
         elif opcion == "7":
