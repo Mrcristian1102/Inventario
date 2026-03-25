@@ -8,6 +8,7 @@ def menu():
         print("2. Mostrar inventario")
         print("3. Calcular estadísticas")
         print("4. Buscar producto")
+        print("5. Actualizar producto")
         print("6 Eliminar producto")
         print("7. Salir")
 
