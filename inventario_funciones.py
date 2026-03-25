@@ -88,8 +88,8 @@ def calcular_estadisticas():
     print("\n Producto mayor de stock: ")
     print(producto_mayor_stock)
 
-    print(f"Valor total del inventario: {valor_total}")
-    print(f"Cantidad total de productos: {total_productos}")
+    print(f"\n Valor total del inventario: {valor_total}")
+    print(f"\n Cantidad total de productos: {total_productos}")
 
 
 def buscar_producto():  
