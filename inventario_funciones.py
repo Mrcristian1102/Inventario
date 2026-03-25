@@ -68,10 +68,25 @@ def calcular_estadisticas():
     valor_total = 0
     total_productos = 0
 
+    producto_mas_caro = inventario[0]
+    producto_mayor_stock = inventario[0]
+
     # Recorrer inventario
     for producto in inventario:
         valor_total += producto["precio"] * producto["cantidad"]
         total_productos += producto["cantidad"]
+
+        if producto["precio"] > producto_mas_caro["precio"]:
+            producto_mas_caro = producto
+
+        if producto["cantidad"] > producto_mayor_stock["cantidad"]:
+            producto_mayor_stock = producto
+
+    print("\n Producto mas caro: ")
+    print(producto_mas_caro)
+
+    print("\n Producto mayor de stock: ")
+    print(producto_mayor_stock)
 
     print(f"Valor total del inventario: {valor_total}")
     print(f"Cantidad total de productos: {total_productos}")
