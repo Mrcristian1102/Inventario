@@ -1,4 +1,5 @@
-from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto
+from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario
+from archivos import guardar_csv
 
 # Función principal que contiene el menú
 def menu():
@@ -11,8 +12,9 @@ def menu():
         print("3. Calcular estadísticas")
         print("4. Buscar producto")
         print("5. Actualizar producto")
-        print("6 Eliminar producto")
-        print("7. Salir")
+        print("6. Eliminar producto")
+        print("7. Guardar en CSV") # Agregamos esta
+        print("8. Salir")          # Cambiamos el número de esta
 
         opcion = input("Seleccione una opción: ")
 
@@ -30,10 +32,12 @@ def menu():
         elif opcion == "6":
             eliminar_producto()  
         elif opcion == "7":
+            guardar_csv(inventario, "inventario.csv") # Llamamos a tu nueva función
+        elif opcion == "8":
             print("Saliendo del programa...")
             break
         else:
             print("Opción inválida. Intente nuevamente.")
 
-# Ejecutar el programa
+# Ejecutar el programa (COMO TÚ LO TENÍAS)
 menu()
