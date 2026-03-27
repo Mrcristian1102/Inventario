@@ -62,7 +62,7 @@ def cargar_csv(ruta):
 
                     productos.append(producto)  # Agrega producto válido
 
-                except:
+                except ValueError:
                     errores += 1  # Error en conversión
 
         print(f"Archivo cargado. Filas inválidas omitidas: {errores}")
@@ -70,7 +70,7 @@ def cargar_csv(ruta):
 
     except FileNotFoundError:
         print("El archivo no existe.")
-    except:
-        print("Error al leer el archivo.")
+    except Exception as e:
+        print(f"Error al leer el archivo: {e}")
 
     return None  # Retorna None si falla

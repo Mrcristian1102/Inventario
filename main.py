@@ -1,5 +1,5 @@
-from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario
-from archivos import guardar_csv, cargar_csv
+from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario, cargar_inventario_csv
+from archivos import guardar_csv
 
 
 def menu():
@@ -19,7 +19,7 @@ def menu():
 
         try:
             opcion = int(input("Seleccione una opción: "))
-        except:
+        except ValueError:
             print("Debe ingresar un número.")
             continue  # Vuelve al menú
 
@@ -38,36 +38,7 @@ def menu():
         elif opcion == 7:
             guardar_csv(inventario, "inventario.csv")  # Guarda archivo
         elif opcion == 8:
-            ruta = input("Digite la ruta del archivo CSV: ")
-            datos = cargar_csv(ruta)  # Carga archivo
-
-            if datos is not None:  # Verifica que cargó bien
-                decision = input("¿Sobrescribir inventario actual? (S/N): ").lower()
-
-                if decision == "s":
-                    inventario.clear()  # Borra inventario actual
-                    inventario.extend(datos)  # Carga nuevos datos
-                    print("Inventario reemplazado correctamente.")
-
-                elif decision == "n":
-                    # Fusionar inventarios
-                    for nuevo in datos:
-                        encontrado = False
-
-                        for producto in inventario:
-                            if producto["nombre"].lower() == nuevo["nombre"].lower():
-                                producto["cantidad"] += nuevo["cantidad"]  # Suma cantidades
-                                producto["precio"] = nuevo["precio"]  # Actualiza precio
-                                encontrado = True
-                                break
-
-                        if not encontrado:
-                            inventario.append(nuevo)  # Agrega si no existe
-
-                    print("Inventario fusionado correctamente.")
-
-                else:
-                    print("Opción inválida.")
+            cargar_inventario_csv()
         elif opcion == 9:
             print("Saliendo del programa...")
             continuar = False  # Termina el while
