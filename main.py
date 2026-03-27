@@ -1,5 +1,7 @@
 from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario
 from archivos import guardar_csv, cargar_csv
+
+
 def menu():
     continuar = True
 
@@ -19,7 +21,7 @@ def menu():
             opcion = int(input("Seleccione una opción: "))
         except:
             print("Debe ingresar un número.")
-            continue
+            continue  # Vuelve al menú
 
         if opcion == 1:
             agregar_producto()
@@ -34,32 +36,33 @@ def menu():
         elif opcion == 6:
             eliminar_producto()
         elif opcion == 7:
-            guardar_csv(inventario, "inventario.csv")
+            guardar_csv(inventario, "inventario.csv")  # Guarda archivo
         elif opcion == 8:
             ruta = input("Digite la ruta del archivo CSV: ")
-            datos = cargar_csv(ruta)
+            datos = cargar_csv(ruta)  # Carga archivo
 
-            if datos is not None:
+            if datos is not None:  # Verifica que cargó bien
                 decision = input("¿Sobrescribir inventario actual? (S/N): ").lower()
 
                 if decision == "s":
-                    inventario.clear()
-                    inventario.extend(datos)
+                    inventario.clear()  # Borra inventario actual
+                    inventario.extend(datos)  # Carga nuevos datos
                     print("Inventario reemplazado correctamente.")
 
                 elif decision == "n":
+                    # Fusionar inventarios
                     for nuevo in datos:
                         encontrado = False
 
                         for producto in inventario:
                             if producto["nombre"].lower() == nuevo["nombre"].lower():
-                                producto["cantidad"] += nuevo["cantidad"]
-                                producto["precio"] = nuevo["precio"]
+                                producto["cantidad"] += nuevo["cantidad"]  # Suma cantidades
+                                producto["precio"] = nuevo["precio"]  # Actualiza precio
                                 encontrado = True
                                 break
 
                         if not encontrado:
-                            inventario.append(nuevo)
+                            inventario.append(nuevo)  # Agrega si no existe
 
                     print("Inventario fusionado correctamente.")
 
@@ -67,8 +70,9 @@ def menu():
                     print("Opción inválida.")
         elif opcion == 9:
             print("Saliendo del programa...")
-            continuar = False
+            continuar = False  # Termina el while
         else:
             print("Opción inválida. Intente nuevamente.")
+
 
 menu()

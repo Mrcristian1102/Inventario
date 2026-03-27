@@ -1,4 +1,4 @@
-import csv
+import csv  # Librería para manejar archivos CSV
 
 
 def guardar_csv(inventario, ruta):
@@ -7,12 +7,14 @@ def guardar_csv(inventario, ruta):
         return
 
     try:
+        # Abre archivo en modo escritura
         with open(ruta, mode='w', newline='', encoding='utf-8') as archivo:
             escritor = csv.writer(archivo)
 
-            escritor.writerow(['nombre', 'precio', 'cantidad'])
+            escritor.writerow(['nombre', 'precio', 'cantidad'])  # Encabezado
 
             for producto in inventario:
+                # Guarda cada producto como fila
                 escritor.writerow([producto['nombre'], producto['precio'], producto['cantidad']])
 
         print("Inventario guardado correctamente.")
@@ -22,20 +24,22 @@ def guardar_csv(inventario, ruta):
 
 
 def cargar_csv(ruta):
-    productos = []
-    errores = 0
+    productos = []  # Lista donde se guardan los datos cargados
+    errores = 0  # Contador de filas inválidas
 
     try:
         with open(ruta, mode='r', encoding='utf-8') as archivo:
             lector = csv.reader(archivo)
 
-            encabezado = next(lector, None)
+            encabezado = next(lector, None)  # Lee primera fila
 
+            # Validar encabezado
             if encabezado != ['nombre', 'precio', 'cantidad']:
                 print("El archivo no tiene el encabezado correcto.")
                 return None
 
             for fila in lector:
+                # Validar que tenga 3 columnas
                 if len(fila) != 3:
                     errores += 1
                     continue
@@ -45,6 +49,7 @@ def cargar_csv(ruta):
                     precio = float(fila[1])
                     cantidad = int(fila[2])
 
+                    # Validar valores negativos
                     if precio < 0 or cantidad < 0:
                         errores += 1
                         continue
@@ -55,17 +60,17 @@ def cargar_csv(ruta):
                         "cantidad": cantidad
                     }
 
-                    productos.append(producto)
+                    productos.append(producto)  # Agrega producto válido
 
                 except:
-                    errores += 1
+                    errores += 1  # Error en conversión
 
         print(f"Archivo cargado. Filas inválidas omitidas: {errores}")
-        return productos
+        return productos  # Retorna lista de productos
 
     except FileNotFoundError:
         print("El archivo no existe.")
     except:
         print("Error al leer el archivo.")
 
-    return None
+    return None  # Retorna None si falla
