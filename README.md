@@ -47,3 +47,4 @@ El código se divide en tres módulos principales para cumplir con las buenas pr
 Para iniciar el sistema de inventario, abre tu terminal en la carpeta del proyecto y ejecuta:
 
 ```bash
+python app.py
