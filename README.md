@@ -1,41 +1,50 @@
-# Inventario Básico en Python
-## Descripción
+# Sistema de Gestión de Inventario en Python
 
-Este proyecto es un programa sencillo en Python que permite registrar un producto en un inventario.
-El usuario ingresa los datos del producto y el sistema calcula el costo total multiplicando el precio por la cantidad.
+Este proyecto es una aplicación de consola en Python diseñada para gestionar el inventario de un negocio. Permite registrar productos, realizar operaciones matemáticas básicas de costos, calcular estadísticas avanzadas y mantener la persistencia de los datos mediante la lectura y escritura de archivos CSV.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
+El proyecto está estructurado de manera modular para garantizar la legibilidad, escalabilidad y un correcto manejo de errores y excepciones.
 
-# Diagrama de Flujo
+---
 
-El proceso del programa sigue estos pasos:
+## 🚀 Características del Sistema
 
-1. Inicio
-2. Leer nombre, precio y cantidad
-3. Calcular costo total
-4. Mostrar resultado
-5. fin
+### 1. Operaciones Básicas (CRUD)
+* **Agregar Producto:** Registro de nombre, precio y cantidad con validación de tipos de datos.
+* **Mostrar Inventario:** Visualización de todos los productos en formato amigable.
+* **Buscar Producto:** Búsqueda individual por nombre.
+* **Actualizar Producto:** Modificación de precio o cantidad de un producto existente.
+* **Eliminar Producto:** Eliminación de registros del inventario.
 
-El diagrama fue realizado en draw.io y se encuentra en el repositorio como imagen o PDF.
+### 2. Estadísticas del Negocio
+* Cálculo del valor total acumulado del inventario.
+* Conteo de unidades totales registradas.
+* Identificación del producto más caro y del producto con mayor stock.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
+### 3. Persistencia en Archivos (CSV)
+* **Guardar en CSV:** Exporta el inventario actual a un archivo compatible con Excel.
+* **Cargar desde CSV:** Importa datos con opción de **sobrescribir** el inventario actual o **fusionar** datos sumando cantidades si el producto ya existe.
+* **Manejo de Errores Robustos:** Ignora filas corruptas, evita que el programa se caiga por archivos no encontrados o permisos denegados, y avisa al usuario cuántas filas inválidas fueron omitidas.
 
-# Funcionalidades
+---
 
--Solicitar el nombre del producto
+## 📁 Estructura del Proyecto
 
--solicitar el precio
+El código se divide en tres módulos principales para cumplir con las buenas prácticas de desarrollo:
 
--Solicitar la cantidad
+* `app.py`: Archivo principal que contiene el menú interactivo de consola y el bucle principal que mantiene viva la aplicación.
+* `servicios.py`: Módulo que contiene toda la lógica de negocio (operaciones CRUD y cálculo de estadísticas).
+* `archivos.py`: Módulo especializado en la lectura, validación y escritura de los archivos CSV.
 
--Calcular el costo total
+---
 
--Mostrar el resultado en consola
+## 🛠️ Requisitos e Instalación
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Asegúrate de tener instalado **Python 3.x** en tu sistema.
+2. Clona este repositorio o descarga los archivos en una carpeta local.
+3. (Opcional) Guarda tu diagrama de flujo del sistema en la carpeta raíz del proyecto en formato `PNG` o `PDF`.
 
-# Ejemplo de salida
+### Ejecución
+Para iniciar el sistema de inventario, abre tu terminal en la carpeta del proyecto y ejecuta:
 
-Producto: Lapiz | Precio: 500 | Cantidad: 3 | Total: 1500
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
+```bash
+python app.py
