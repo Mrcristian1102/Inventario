@@ -1,4 +1,4 @@
-from inventario_funciones import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario, cargar_inventario_csv
+from servicios import agregar_producto, mostrar_inventario, calcular_estadisticas, buscar_producto, eliminar_producto, actualizar_producto, inventario, cargar_inventario_csv
 from archivos import guardar_csv
 
 
